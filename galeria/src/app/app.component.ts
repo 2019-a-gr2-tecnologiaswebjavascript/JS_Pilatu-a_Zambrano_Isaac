@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Floreria';
   tittleColor="rojo";
-
+  estaMostrando=false;
   arregloFlores = [
     new Flor("Papitas","A lo bestia"),
     new Flor("Carnitas","Gorditas"),
@@ -17,6 +17,7 @@ export class AppComponent {
 
   arregloFloresJs = [
     {
+      titulo:"Don José",
       nombre:"Papitas",
       descripcion:"A lo bestia",
       // dato:1,
@@ -27,10 +28,12 @@ export class AppComponent {
       // dato6:null
     },
     {
+      titulo:"Don Pepito",
       nombre:"Carnitas",
       descripcion:"Gorditas"
     },
     {
+      titulo:"Doña Lucha",
       nombre:"Chicas",
       descripcion:"Cheveres"
     }
@@ -49,7 +52,10 @@ export class AppComponent {
     this.tittleColor="amarillo";
   }
 
+  mostrar(estaMostrando:boolean){
+    this.estaMostrando=estaMostrando;
 
+  }
 
 }
 

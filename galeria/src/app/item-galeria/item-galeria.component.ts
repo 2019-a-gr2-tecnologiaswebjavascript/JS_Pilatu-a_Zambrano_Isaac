@@ -1,13 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-item-galeria',
   templateUrl: './item-galeria.component.html',
   styleUrls: ['./item-galeria.component.css']
 })
-export class ItemGaleriaComponent implements OnInit {
+export class ItemGaleriaComponent implements OnInit, OnDestroy {
 
   title = 'Licoreria';
+
+  @Input()
+  titulo;
 
   @Input()
   textoBoton;   
@@ -28,6 +31,11 @@ export class ItemGaleriaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('Empieza');
+  }
+
+  ngOnDestroy(){
+    console.log('Termina');
   }
 
   alertar(){
@@ -72,3 +80,41 @@ class Usuario{
  }
 }
 */
+
+/*
+Ciclo de vida del componente
+ngOnInit -> OnInit -> Instancia
+
+ngOnDestroy -> OnDestroy
+
+*/
+
+/*
+- RUTA
+  - PAPA
+    - HIJO
+      - NIETO
+    - HIJA
+  - TIO
+    - PRIMO
+
+  PRIMERA FORMA DE COMUNICACION
+  Si un padre quiere comunicarse con un hijo utiliza property binding
+  Si un hijo quiere comunicarse con un padre utiliza event binding
+
+  SEGUNDA FORMA DE COMUNICACION
+  # ModuloPrincipal (AppModule)
+    * ComponentePrincipal (AppComponent)
+  # ModuloNotas (NotasModule)
+    * TablaMostrarMateria
+      _ [] notasPorMateria
+      _ [] nombreBoton
+      _ [] iconoBoton
+      _ () ejecutoAccion
+    * listaMaterias
+      _ () seleccionoMateria
+    
+      [Javascript] -> ()-> seleccionoJavascript
+*/
+
+
