@@ -21,28 +21,34 @@ export class AppComponent {
       titulo:"Don José",
       nombre:"Papitas",
       descripcion:"A lo bestia",
-      // dato:1,
-      // dato1:1.1,
-      // dato3:" asdasd ",
-      // dato4:false,
-      // dato5:true,
-      // dato6:null
+      productos:[
+        'Papitas',
+        'Empanadas'
+      ]
     },
     {
       titulo:"Don Pepito",
       nombre:"Carnitas",
-      descripcion:"Gorditas"
+      descripcion:"Gorditas",
+      productos:[
+        'Motes',
+        'Fritadas'
+      ]
     },
     {
       titulo:"Doña Lucha",
       nombre:"Chicas",
-      descripcion:"Cheveres"
+      descripcion:"Cheveres",
+      productos:[
+        'Tortas',
+        'Sanduches'
+      ]
     }
   ]
 
 
   constructor(private readonly _carritoService:CarritoService){
-    
+
   }
 
   cambioChela(evento:boolean){
