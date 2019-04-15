@@ -1,13 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { CarritoService } from '../servicios/carrito/carrito.service';
 
 @Component({
   selector: 'app-item-galeria',
   templateUrl: './item-galeria.component.html',
   styleUrls: ['./item-galeria.component.css']
 })
-export class ItemGaleriaComponent implements OnInit {
+export class ItemGaleriaComponent implements OnInit, OnDestroy {
 
   title = 'Licoreria';
+
+  @Input()
+  titulo;
 
   @Input()
   textoBoton;   
@@ -23,11 +27,32 @@ export class ItemGaleriaComponent implements OnInit {
 
   url = "http://www.dna-autoparts.com/23121-thickbox_default/bielas-forjadas-eagle-para-sr20det.jpg";
 
-  notas = [1,2,3,4,5,6,7,8,9,10]
+  @Input()
+  productos;
 
-  constructor() { }
+  // INJECCION DE DEPENDENCIAS
+  //SERVICIOS COMPARTIDOS EN COMPONENTES
+  // SERVICIOS PUEDES SER COMPARTIDOS EN OTROS SERVICIOS
+  constructor(private readonly _carritoService:CarritoService) { }
 
   ngOnInit() {
+    
+    console.log('Empieza');
+    console.log(this._carritoService.carritoCompras)
+  }
+
+  ngOnDestroy(){
+    console.log('Termina');
+  }
+
+  agregarCarrito(valorCarrito){
+    //this._carritoService.carritoCompras.push(valorCarrito);
+    const itemCarrito={
+      valor:valorCarrito,
+      nombreTienda:this.titulo
+    };
+    this._carritoService.carritoCompras.splice(0,0,itemCarrito);
+    console.log(this._carritoService.carritoCompras);
   }
 
   alertar(){
@@ -72,3 +97,41 @@ class Usuario{
  }
 }
 */
+
+/*
+Ciclo de vida del componente
+ngOnInit -> OnInit -> Instancia
+
+ngOnDestroy -> OnDestroy
+
+*/
+
+/*
+- RUTA
+  - PAPA
+    - HIJO
+      - NIETO
+    - HIJA
+  - TIO
+    - PRIMO
+
+  PRIMERA FORMA DE COMUNICACION
+  Si un padre quiere comunicarse con un hijo utiliza property binding
+  Si un hijo quiere comunicarse con un padre utiliza event binding
+
+  SEGUNDA FORMA DE COMUNICACION
+  # ModuloPrincipal (AppModule)
+    * ComponentePrincipal (AppComponent)
+  # ModuloNotas (NotasModule)
+    * TablaMostrarMateria
+      _ [] notasPorMateria
+      _ [] nombreBoton
+      _ [] iconoBoton
+      _ () ejecutoAccion
+    * listaMaterias
+      _ () seleccionoMateria
+    
+      [Javascript] -> ()-> seleccionoJavascript
+*/
+
+
