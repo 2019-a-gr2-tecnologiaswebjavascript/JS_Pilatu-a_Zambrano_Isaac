@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
+import { ItemCarritoCompras } from '../interfaces/item-carrito-compras';
 
 @Component({
   selector: 'app-item-galeria',
@@ -45,14 +46,13 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
     console.log('Termina');
   }
 
-  agregarCarrito(valorCarrito){
-    //this._carritoService.carritoCompras.push(valorCarrito);
-    const itemCarrito={
+  agregarCarrito(valorCarrito:string){
+        const itemCarrito:ItemCarritoCompras={
       valor:valorCarrito,
       nombreTienda:this.titulo
     };
-    this._carritoService.carritoCompras.splice(0,0,itemCarrito);
-    console.log(this._carritoService.carritoCompras);
+    const resupuestaCarrito=this._carritoService.agregarCarritoDeCompras(itemCarrito);
+    console.log(resupuestaCarrito);
   }
 
   alertar(){
@@ -80,6 +80,10 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
 
 
 }
+
+
+
+
 
 /*
 @DecoratorsClase() 
@@ -134,4 +138,20 @@ ngOnDestroy -> OnDestroy
       [Javascript] -> ()-> seleccionoJavascript
 */
 
+
+/*
+  Problema: Cuando se agrega un item al arreglo,
+  sumar la cantidad.
+
+  id -> Valor
+
+  1) Verificar si ya existe el item almacenado
+    1.1 Existe)
+      Aumentamos la cantidad en 1
+    1.2 No Existe)
+      Creamos el contador y lo ponemos en 1
+
+
+
+*/
 
