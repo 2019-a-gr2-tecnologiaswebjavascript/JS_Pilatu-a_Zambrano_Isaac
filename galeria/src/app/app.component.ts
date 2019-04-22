@@ -32,7 +32,8 @@ export class AppComponent {
       descripcion:"Gorditas",
       productos:[
         'Motes',
-        'Fritadas'
+        'Fritadas',
+        'Papitas'
       ]
     },
     {
@@ -41,7 +42,8 @@ export class AppComponent {
       descripcion:"Cheveres",
       productos:[
         'Tortas',
-        'Sanduches'
+        'Sanduches',
+        'Papitas'
       ]
     }
   ]
