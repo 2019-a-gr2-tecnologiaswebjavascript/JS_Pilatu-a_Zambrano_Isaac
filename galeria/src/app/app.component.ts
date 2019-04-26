@@ -23,7 +23,8 @@ export class AppComponent {
       descripcion:"A lo bestia",
       productos:[
         'Papitas',
-        'Empanadas'
+        'Empanadas',
+        'Fritadas'
       ]
     },
     {

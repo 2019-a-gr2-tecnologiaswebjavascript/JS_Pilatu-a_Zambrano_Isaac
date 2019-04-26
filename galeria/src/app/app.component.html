@@ -1,5 +1,6 @@
+<!--
 <h1 class={{tittleColor}}>Titulo {{title}}</h1>
-<!-- {{interpolacion}}  -->
+
 
 <pre>
     {{_carritoService.carritoCompras | json}}
@@ -11,8 +12,9 @@
     <app-item-galeria 
     
     *ngFor="let flor of arregloFloresJs"
-    [textoBoton]="flor.nombre"
+    
     [titulo]="flor.titulo"
+    [textoBoton]="flor.nombre"
     [nombreItem]="flor.descripcion"
     [productos]="flor.productos"
     (cambioChela)="cambioChela($event)"
@@ -23,3 +25,36 @@
 </div>
 
 
+-->
+<div class="contenedor">
+    <div class="row">
+        <div class="col-md-3">
+            TITULO
+        </div>
+        <div class="col-md-6 texto-derecha" >
+            <div class="item-menu">Menu</div>
+            <div class="item-menu">Inicio</div>
+            <div class="item-menu">Peliculas</div>
+            <div class="item-menu">Tienda</div>
+            <div class="item-menu">DC</div>
+            <div class="item-menu">Marvel</div>
+        </div>
+        <div class="col-md-3">
+            LOGIN
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            LISTAS
+        </div>
+        <div class="col-md-9">
+            CONTENIDO
+        </div>
+    </div>
+    <div class="row">
+        3
+    </div>
+    <div class="row">
+        4
+    </div>
+</div>
