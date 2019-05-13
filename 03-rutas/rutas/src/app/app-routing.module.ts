@@ -10,11 +10,15 @@ import { RutaProductosVideojuegosComponent } from './rutas/ruta-productos-videoj
 import { VideojuegoCategoriaMmorpgComponent } from './rutas/ruta-categorias-videojuegos/videojuego-categoria-mmorpg/videojuego-categoria-mmorpg.component';
 // tslint:disable-next-line: max-line-length
 import { VideojuegoCategoriaEstrategiaComponent } from './rutas/ruta-categorias-videojuegos/videojuego-categoria-estrategia/videojuego-categoria-estrategia.component';
+import { EstaLogeadoService } from './servicios/esta-logeado/esta-logeado.service';
 const routes: Routes = [
   {path: 'home/app',
     component: RutaHomeComponent},
   {path: 'creditos/:idCredito/:tasaReferencia',
-    component: RutaCreditosComponent},
+    component: RutaCreditosComponent,
+  canActivate:[
+    EstaLogeadoService
+  ]},
     {path: 'productos',
       component: RutaProductosComponent,
       children: [
