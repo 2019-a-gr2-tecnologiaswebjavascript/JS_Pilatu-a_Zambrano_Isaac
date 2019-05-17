@@ -1,0 +1,47 @@
+<ion-header >
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Chat
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="medium">
+    <ion-list style="padding: 0px">
+        <ion-item class="active" color="medium" *ngFor="let mensaje of mensajes" >
+          <app-item-chat style="width: 100%; margin-bottom: 5px;margin-top: 5px; border: lightgray;border-style: solid;" 
+          
+          [autor]="mensaje.autor"
+          [mensaje]="mensaje.mensaje"
+          [fecha]="mensaje.fecha"
+          >
+          </app-item-chat>
+       </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar  >
+    <ion-grid>
+      <ion-row color="dark">
+        <ion-col size="10">
+            <ion-input [(ngModel)]="nuevoMensaje" color="medium" placeholder="Escribir mensaje">
+              </ion-input>
+        </ion-col>
+        <ion-col size="2" >
+            <ion-button (click)="agregarMensaje()" color="dark">
+              <ion-icon slot="icon-only" name="send"></ion-icon>
+              
+            </ion-button>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    
+  </ion-toolbar>
+</ion-footer>

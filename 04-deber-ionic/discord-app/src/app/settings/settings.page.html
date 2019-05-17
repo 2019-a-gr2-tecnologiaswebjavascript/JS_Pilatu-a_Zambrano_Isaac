@@ -1,0 +1,28 @@
+<ion-header >
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Configuracion
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row>
+        <ion-item style="width: 100%">
+            <ion-label>Nombre:</ion-label>
+            <ion-input  [(ngModel)]="nombreAutor" placeholder="Escribir nombre"></ion-input>
+          </ion-item>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer  align="center" style="align-content: center;background: #86888f">
+    <ion-button (click)="guardarCambios()" color='dark' style="margin:2%">
+        <ion-icon slot="start" name="settings"></ion-icon>
+        Guardar cambios
+      </ion-button>
+</ion-footer>
