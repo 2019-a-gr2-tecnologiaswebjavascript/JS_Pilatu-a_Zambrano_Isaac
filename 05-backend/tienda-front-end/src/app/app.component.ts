@@ -41,6 +41,43 @@ export class AppComponent implements OnInit {
       }
     );
 
+    const usuarioUpdate$ =this._usuarioHttpService
+                          .actualizar({nombre:' Ángel', apellido: 'Miguelillo'},1);
+  
+    usuarioUpdate$.subscribe(
+      (usuarioUpdated)=>{
+        console.log(usuarioUpdated);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
+
+    const usuarioGet$ =this._usuarioHttpService
+                          .obtenerPorID(1);
+  
+    usuarioGet$.subscribe(
+      (usuarioObtenido)=>{
+        console.log(usuarioObtenido);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
+
+
+    const todosUsuariosGet$ =this._usuarioHttpService
+                          .obtenerTodos();
+  
+    todosUsuariosGet$.subscribe(
+      (usuariosObtenidos)=>{
+        console.log(usuariosObtenidos);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
+
     const url = environment.url +"/Usuario";
     const listaUsuarios$ = this._httpClient.get(url);
 
