@@ -46,6 +46,42 @@ export class HttpSailsPrincipal<ClaseEntidad>{
                         })
                     );
     }
+
+    actualizar(updateRegistro:ClaseEntidad, id:number):Observable<ClaseEntidad>{
+        const url = `${this.url}${this.modelo}${'/'}${id}`;
+        return this.httpClient
+                    .put(url,updateRegistro)
+                    .pipe(
+                        map(
+                            (datos)=>{
+                                return datos as ClaseEntidad;
+                        })
+                    );
+    }
+
+    obtenerPorID(id:number):Observable<ClaseEntidad>{
+        const url = `${this.url}${this.modelo}${'/'}${id}`;
+        return this.httpClient
+                    .get(url)
+                    .pipe(
+                        map(
+                            (datos)=>{
+                                return datos as ClaseEntidad;
+                        })
+                    );
+    }
+
+    obtenerTodos():Observable<ClaseEntidad>{
+        const url = `${this.url}${this.modelo}`;
+        return this.httpClient
+                    .get(url)
+                    .pipe(
+                        map(
+                            (datos)=>{
+                                return datos as ClaseEntidad;
+                        })
+                    );
+    }
     // Crear
 
     // Borrar
