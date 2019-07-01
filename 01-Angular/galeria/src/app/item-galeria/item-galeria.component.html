@@ -1,0 +1,17 @@
+<h1 class="rojo">Tienda: {{titulo}}</h1>
+<!-- {{}} ->  Interpolacion -->
+<p>Nombre: {{nombreItem}}</p>
+<!-- () EVENT BINDING ->  Evento -->
+<!--<button (click)="alertar()">
+     {{textoBoton}}
+    </button> -->
+
+
+<!-- [] Property Binding -> Propiedades/Atributos -->
+<img [src]="url" alt="" 
+(click)="cambiarImagen()" height="150px">
+
+<!-- Directiva -> *ngFor  -->
+<div *ngFor="let producto of productos">
+   <button (click)="agregarCarrito(producto)">Agregar: {{producto.nombre}}</button>
+</div>

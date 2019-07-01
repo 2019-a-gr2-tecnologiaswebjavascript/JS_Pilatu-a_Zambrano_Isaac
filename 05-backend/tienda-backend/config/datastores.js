@@ -34,7 +34,7 @@ module.exports.datastores = {
 
   default: {
     adapter: 'sails-mysql', // sudo npm i sails-mysql
-    url: 'mysql://root:root@localhost:32769/prueba',
+    url: 'mysql://root:root@localhost:32771/prueba',
     // url: 'mysql://usuario:clave@localhost:puerto/bdd',
   },
 
