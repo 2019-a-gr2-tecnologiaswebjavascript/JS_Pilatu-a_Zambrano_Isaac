@@ -19,6 +19,22 @@ module.exports = {
       minLength:4,
       unique:true
     },
+    descriptorArchivo:{
+      type:'string',
+
+    },
+    tamanio:{
+      type:'string',
+
+    },
+    nombreArchivo:{
+      type:'string',
+
+    },
+    tipo:{
+      type:'string',
+      
+    },
     arregloProductosUsuario:{
       collection:'ProductoUsuario',
       via:'fkProducto'
