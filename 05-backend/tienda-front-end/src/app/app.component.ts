@@ -19,7 +19,10 @@ export class AppComponent implements OnInit {
               private readonly _productoUsuarioService:ProductoUsuarioHttpService) {
 
 }
+ngOnInit(){
 
+}
+/*** 
   ngOnInit(){
 
     const usuarioCrear$ = this._usuarioHttpService
@@ -148,9 +151,9 @@ export class AppComponent implements OnInit {
           console.log(error);
         }
       )
-      */
+      
   }
-
+  ***/
   seleccionarArchivo(evento){
     const listaArchivos: FileList = evento.target.files;
     const validaciones={
