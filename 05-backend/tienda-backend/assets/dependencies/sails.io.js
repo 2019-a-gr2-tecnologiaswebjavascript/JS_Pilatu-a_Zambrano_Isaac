@@ -514,7 +514,7 @@ return new(b[["Active"].concat("Object").join("X")])("Microsoft.XMLHTTP")}catch(
         cb(response);
       };
       scriptEl.src = opts.url;
-      document.getElementsByTagName('head')[0].appendChild(scriptEl);
+      //document.getElementsByTagName('head')[0].appendChild(scriptEl);
 
     }
 

@@ -16,8 +16,7 @@ module.exports = {
     codigo:{
       type:'string',
       required:true,
-      minLength:4,
-      unique:true
+      minLength:4
     },
     descriptorArchivo:{
       type:'string',

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Websockets</title>
+</head>
+<body>
+
+    <script src="dependencies/sails.io.js"></script>
+    <script>
+        //io.sails.url='http://127.0.0.1:1337/websockets.html'
+        const socketConexion = io.sails.connect();
+        socketConexion.on(
+            'connect',      //Evento llamado connect
+            () => {         //Se emite la función siempre que se emita el evento
+                console.log("Socket conectado");
+                
+                
+
+            } 
+        );
+        socketConexion.on(
+            'disconnect',      //Evento llamado connect
+            () => {         //Se emite la función siempre que se emita el evento
+                console.log("Socket desconectado");
+            } 
+        );
+
+        socketConexion.post(
+                    '/producto',
+                    {
+                        "nombre": "Pure Water 1000ml",
+                        "codigo": "AGU-114",
+                        "descriptorArchivo": "/Users/usrdel/Documents/GitHub/JS_Pilatu-a_Zambrano_Isaac/05-backend/tienda-backend/archivos/1d2ee6d7-feb5-4170-b4a7-495b7a17981f.png\"",
+                        "tamanio": "1500",
+                        "nombreArchivo": "fez-png_223376.png",
+                        "tipo": "image/png"
+                    },
+                    (respuestaProducto) => {
+                        console.log('Respuesta: ',respuestaProducto);
+                    }
+                );
+        io.socket.on(
+            'producto',      //Nombre del modelo (Producto)
+            (mensaje) => {
+                          
+                console.log("Mensaje: ",mensaje);
+            } 
+        );
+    </script>
+</body>
+</html>
